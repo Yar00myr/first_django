@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Create post{% endblock %}
+
+{% block content %}
+    <div class="conteiner w-50">
+        <h1>Create post</h1>
+        <form action="{% url 'blog:create_post' %}" method="post">
+            {% csrf_token %}
+            <label for="form-label">Title</label>
+            <input type="text", name="title">
+
+            <label for="form-label">Content</label>
+            <textarea name="content" rows="10" class="form-control"></textarea>
+            <button type="submit">Create</button>
+        </form>
+    </div>
+{% endblock %}
