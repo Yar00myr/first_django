@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
 
 
@@ -11,6 +12,9 @@ class Post(models.Model):
 
     def __repr__(self):
         return f"{self.title}"
+
+    def get_absolute_url(self):
+        return reverse("blog:one_post", args=[self.id])
 
 
 class Comment(models.Model):
